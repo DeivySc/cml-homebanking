@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
   }
 
   public redirectPagos() {
-    this.router.navigateByUrl('/pagos');
+    this.router.navigateByUrl('/pagos/index');
   }
 
   ngOnInit(): void {

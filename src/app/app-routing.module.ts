@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'pagos',
-    component: PagosComponent
+    loadChildren: () => import('./views/pagos/pagos.module').then(m => m.PagosModule)
   }
 ];
 

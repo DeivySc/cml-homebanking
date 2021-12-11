@@ -13,6 +13,9 @@ import { HomeComponent } from './views/home/home.component';
 import { PagosComponent } from './views/pagos/pagos.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { PagosDashboardComponent } from './views/pagos/components/pagos-dashboard/pagos-dashboard.component';
+import { PagosPrestamosComponent } from './views/pagos/components/pagos-prestamos/pagos-prestamos.component';
+import { PagosRoutingModule } from './views/pagos/pagos-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MenuComponent,
     NavbarComponent,
     HomeComponent,
-    PagosComponent
+    PagosComponent,
+    PagosDashboardComponent,
+    PagosPrestamosComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatListModule,
     MatIconModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    PagosRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
