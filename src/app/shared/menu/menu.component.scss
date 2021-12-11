@@ -1,0 +1,11 @@
+.is-active {
+  color: #1A3184 !important;
+  background-color: #BBEEE5 !important;
+}
+
+.isInactive{
+  color: #7B7B7B;
+}
+::ng-deep.mat-list-option:not(.mat-list-single-selected-option):not(.mat-list-item-disabled), .mat-nav-list .mat-list-item:not(.mat-list-item-disabled), .mat-action-list .mat-list-item:not(.mat-list-item-disabled) {
+  background: none;
+}

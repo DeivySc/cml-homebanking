@@ -1,1 +1,8 @@
-<span class="text-3xl text-[#00AF91] font-bold underline">hello</span>
+<mat-drawer-container class="w-full h-full">
+  <mat-drawer class="w-full lg:w-[13.813rem]" mode="side" opened>
+    <app-menu></app-menu>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

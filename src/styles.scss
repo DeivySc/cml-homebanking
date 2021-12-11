@@ -41,3 +41,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/*Type Font*/
+@font-face {
+  font-family: Montserrat;
+  src: url(./assets/font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: MontserratBold;
+  src: url(./assets/font/Montserrat-Bold.ttf);
+}
+
+.monset {
+  font-family: Montserrat;
+}
+
+.monsetb {
+  font-family: MontserratBold;
+}

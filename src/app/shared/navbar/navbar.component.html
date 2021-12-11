@@ -1,1 +1,27 @@
-<p>navbar works!</p>
+<mat-toolbar class="bg-[#00AF91]">
+  <div class="w-full flex justify-between monset">
+    <div>demo</div>
+    <div>
+      <div class="flex content-center flex-wrap content-center">
+        <img class="h-10 w-10" src="assets/img/avatar.svg">
+        <mat-icon [matMenuTriggerFor]="beforeMenu" class="cursor-pointer">keyboard_arrow_down</mat-icon>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button mat-menu-item>
+            <mat-icon class="text-blue-900">account_circle</mat-icon>
+            Mi perfil
+          </button>
+          <button mat-menu-item>
+            <mat-icon class="text-blue-900">settings</mat-icon>
+            Configuración
+          </button>
+          <button mat-menu-item>
+            <mat-icon class="text-blue-900">verified_user</mat-icon>
+            Seguridad
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item><mat-icon>logout</mat-icon>Salir</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
