@@ -22,6 +22,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from "@angular/forms";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatButtonModule} from "@angular/material/button";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import {MatButtonModule} from "@angular/material/button";
     MatSelectModule,
     FormsModule,
     MatRadioModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
