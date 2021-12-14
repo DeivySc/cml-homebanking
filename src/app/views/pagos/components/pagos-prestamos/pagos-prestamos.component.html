@@ -61,6 +61,25 @@
         </div>
       </div>
     </div>
+    <div *ngIf="cuentaCargo !== '' && prestamosPagar !== ''" class="flex pt-6 justify-between border-t-2 mt-6 border-[#D0D0D0]">
+      <div>
+        <div style="border-radius: 12px;" class="px-4 h-[4rem] bg-[#E8F5FF] monsetb w-[14.813rem] flex flex-wrap content-center">
+          <span class="text-[1.5rem]">S/ 80.00</span>
+        </div>
+      </div>
+      <div>
+        <div style="border-radius: 12px;" class="flex px-4 space-x-4 h-[4rem] bg-[#E8F5FF] monsetb w-[21.125rem] flex flex-wrap content-center">
+          <div class="text-[#3D3C3C]">
+            <div><span class="monset text-[0.75rem]">Fecha de vencimiento</span></div>
+            <div><span class="monsetb text-[1rem]">31/10/2021</span></div>
+          </div>
+          <div class="text-[#3D3C3C]">
+            <div><span class="monset text-[0.75rem]">Monto</span></div>
+            <div><span class="monsetb text-[1rem]">S/ 80.00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div *ngIf="cuentaCargo !== '' && prestamosPagar !== ''" class="flex justify-center border-t-2 mt-6 border-[#D0D0D0] text-center monset py-6">
       <div class="w-full">
         <p style="letter-spacing: 0.007em;line-height: 23px;" class="text-[1rem]">Para confirmar la operación, ingresa el Token Digital</p>
