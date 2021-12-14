@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagosPrestamosComponent implements OnInit {
 
-  prestamosPagar!: string;
-  cuentaCargo!: string;
+  prestamosPagar = '';
+  cuentaCargo = '';
 
   prestamos = [
     {value: 1, title: 'Prendamás Clásico', moneda: 'dólares', cuenta: 102013201002201399},
@@ -21,6 +21,9 @@ export class PagosPrestamosComponent implements OnInit {
     {value: 2, title: 'Cuenta Ahorros', moneda: 'soles', monto: 60, cuenta: 1020132010022013582},
     {value: 3, title: 'Cuenta Ahorros', moneda: 'dólares', monto: 100, cuenta: 102013201002201466},
   ];
+
+  preload = false;
+  pagomin = '1';
 
   constructor() { }
 
