@@ -16,6 +16,11 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { PagosDashboardComponent } from './views/pagos/components/pagos-dashboard/pagos-dashboard.component';
 import { PagosPrestamosComponent } from './views/pagos/components/pagos-prestamos/pagos-prestamos.component';
 import { PagosRoutingModule } from './views/pagos/pagos-routing.module';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -27,17 +32,21 @@ import { PagosRoutingModule } from './views/pagos/pagos-routing.module';
     PagosDashboardComponent,
     PagosPrestamosComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatMenuModule,
-    MatToolbarModule,
-    PagosRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatMenuModule,
+        MatToolbarModule,
+        PagosRoutingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

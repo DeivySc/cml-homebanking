@@ -1,1 +1,56 @@
-<p>pagos-prestamos works!</p>
+<div>
+  <div class="flex justify-center mb-2 text-[1.5rem] text-[#3D3C3C] monsetb">
+    <h5>Pago de préstamo</h5>
+  </div>
+  <div class="w-[44.938rem] border-t-2 border-[#00AF91]">
+    <div class="flex justify-center space-x-10 w-full mt-8">
+      <div>
+        <label class="text-[1rem] text-[#3D3C3C] monsetb">Préstamo</label>
+        <mat-form-field class="w-[21.125rem]" appearance="outline">
+          <mat-label>Elige el préstamo a pagar</mat-label>
+          <mat-select [(ngModel)]="prestamosPagar" name="prestamosPagar">
+            <mat-option class="h-auto" *ngFor="let prest of prestamos" [value]="prest.value">
+              <div class="my-3 -mt-2 text-[0.875rem]">
+                <div class="-mb-6">{{prest.title + ' - ' + prest.moneda}}</div>
+                <div class="-mb-6">{{prest.cuenta}}</div>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <label class="text-[1rem] text-[#3D3C3C] monsetb">Cuenta de cargo</label>
+        <mat-form-field class="w-[21.125rem]" appearance="outline">
+          <mat-label>Elige tu cuenta de cargo</mat-label>
+          <mat-select [(ngModel)]="cuentaCargo" name="cuentaCargo">
+            <mat-option *ngFor="let cuent of cuenta" [value]="cuent.value">
+              <div class="flex justify-between my-3 -mt-2 text-[0.875rem]">
+                <div>
+                  <div class="-mb-6">{{cuent.title + ' - ' + cuent.moneda}}</div>
+                  <div class="-mb-6">{{cuent.cuenta}}</div>
+                </div>
+                <div class="flex flex-wrap content-center">
+                  <div class="flex justify-between" *ngIf="cuent.moneda === 'dólares'">
+                    <div>$</div>
+                    <div>{{cuent.monto | number : '1.2-2'}}</div>
+                  </div>
+                  <div class="flex justify-between" *ngIf="cuent.moneda === 'soles'">
+                    <div>S/</div>
+                    <div>{{cuent.monto | number : '1.2-2'}}</div>
+                  </div>
+                </div>
+              </div>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div style="border-radius: 12px;" class="w-[45.125rem] h-[34.375rem] bg-[#F6F6F6] flex flex-wrap content-center px-20 text-center">
+      <span class="text-[1.5rem] text-[#7B7B7B] monsetb">Selecciona tu cuenta de origen y cuenta de cargo para visualizar el monto a pagar.</span>
+    </div>
+  </div>
+</div>

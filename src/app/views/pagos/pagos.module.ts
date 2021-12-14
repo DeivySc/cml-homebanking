@@ -4,11 +4,13 @@ import {PagosRoutingModule} from "./pagos-routing.module";
 
 
 
+
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    PagosRoutingModule
+    PagosRoutingModule,
   ]
 })
 export class PagosModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import {Router} from "@angular/router";
 
 @Component({
@@ -20,7 +20,6 @@ export class PagosDashboardComponent implements OnInit {
     this.router.navigateByUrl('/pagos/' + ruta);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {}
 
 }
