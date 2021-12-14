@@ -11,3 +11,16 @@
 ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: #00AF91;
 }
+
+
+::ng-deep input.mat-input-element {
+  margin-top: -0.0625em;
+  text-align: center;
+  font-size: 35px;
+  letter-spacing: 12px;
+}
+
+.button{
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+}

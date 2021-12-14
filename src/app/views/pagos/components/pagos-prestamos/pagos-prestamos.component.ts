@@ -24,6 +24,7 @@ export class PagosPrestamosComponent implements OnInit {
 
   preload = false;
   pagomin = '1';
+  tokenNumber = ''
 
   constructor() { }
 
