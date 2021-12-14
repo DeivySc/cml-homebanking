@@ -1,8 +1,26 @@
 <mat-drawer-container class="w-full h-full">
-  <mat-drawer class="w-full lg:w-[13.813rem]" mode="side" opened>
-    <app-menu></app-menu>
+  <mat-drawer #drawer fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+              [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)" class="w-full lg:w-[13.813rem]" mode="side" opened>
+    <button mat-icon-button (click)="drawer.toggle()" class="lg:hidden focus:outline-none ml-2 mt-1">
+      <mat-icon>close</mat-icon>
+    </button>
+    <app-menu (closeSideNav)="closeSideNav()"></app-menu>
   </mat-drawer>
   <mat-drawer-content>
+    <div class="lg:hidden">
+      <mat-toolbar class="lg:hidden pb-1 flex justify-between">
+        <div class="flex">
+          <button mat-icon-button (click)="drawer.toggle();" class="focus:outline-none">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <img class="h-8 w-9 ml-2 mt-1" src="assets/img/logoCML.jpeg">
+        </div>
+        <div class="rounded-full bg-white h-10 w-10 text-center mt-2 pr-1.5" matBadge="0" matBadgeColor="accent"
+             matBadgeSize="small">
+          <mat-icon class="text-3xl">notifications</mat-icon>
+        </div>
+      </mat-toolbar>
+    </div>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

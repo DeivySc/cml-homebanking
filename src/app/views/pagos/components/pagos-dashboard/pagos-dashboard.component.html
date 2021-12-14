@@ -1,14 +1,33 @@
 <div class="flex justify-center">
-  <div style="border-bottom: 2px solid #82DFCF;" class="text-[1.5rem] w-[18.625rem] text-center">
+  <div style="border-bottom: 2px solid #82DFCF;" class="lg:block hidden text-[1.5rem] w-full lg:w-[18.625rem] text-center">
     <mat-icon class="text-[2rem] flex items-center justify-center">local_atm</mat-icon>
     <h5 class="monsetb mb-2 text-[#1A3184]">Pagos</h5>
   </div>
+
+  <div style="border-bottom: 2px solid #82DFCF;" class="lg:hidden flex justify-between text-[#1A3184] flex-wrap content-center text-[1.5rem] w-full lg:w-[18.625rem] px-2 text-center">
+    <div class="flex flex-wrap content-center"><span class="monsetb mb-2 text-[1rem]">Pagos</span></div>
+    <div class="flex flex-wrap content-center"><mat-icon class="text-[1.5rem] flex items-center justify-center">restore</mat-icon></div>
+  </div>
 </div>
-<div class="flex justify-center space-x-6 mt-20">
-  <div *ngFor="let cont of content" class="content cursor-pointer w-[18.625rem] h-[13.938rem] flex flex-wrap content-center justify-center" (click)="redirect(cont.alt)">
-    <div class="grid grid-cols-1 gap-4 content-around">
-      <img alt="{{cont.alt}}" src="{{cont.img}}">
-      <span style="line-height: 20px; letter-spacing: 0.0015em;" class="text-[1rem] text-[#1A3184] monsetb">{{cont.title}}</span>
+<div class="lg:flex justify-center lg:space-x-6 mt-20 w-full">
+  <div *ngFor="let cont of content" class="content mb-4 lg:mb-0 cursor-pointer w-[18.625rem] lg:w-[18.625rem] h-[5.625rem] lg:h-[13.938rem] flex flex-wrap content-center lg:justify-center" (click)="redirect(cont.alt)">
+    <div class="flex lg:block justify-between flex-wrap content-center px-4">
+      <div class="mr-4">
+        <img class="w-[2.625rem] h-[3.438rem] lg:w-[5rem] lg:h-[6.5rem]" alt="{{cont.alt}}" src="{{cont.img}}">
+      </div>
+      <div>
+        <span style="line-height: 20px; letter-spacing: 0.0015em;" class="text-[1rem] text-[#1A3184] monsetb">{{cont.title}}</span>
+      </div>
     </div>
+
+
+    <!--<div class="grid lg:grid-cols-1 lg:grid-cols-2 gap-4 content-around flex w-full">
+      <div class="">
+        <img class="w-[2.625rem] h-[3.438rem] lg:w-[5rem] lg:h-[6.5rem]" alt="{{cont.alt}}" src="{{cont.img}}">
+      </div>
+      <div class="">
+        <span style="line-height: 20px; letter-spacing: 0.0015em;" class="text-[1rem] text-[#1A3184] monsetb">{{cont.title}}</span>
+      </div>
+    </div>-->
   </div>
 </div>

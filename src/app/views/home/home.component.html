@@ -56,7 +56,7 @@
   </mat-toolbar>
 
   <div class="flex justify-between py-6">
-    <div class="w-[65%] px-4">
+    <div class="w-full lg:w-[65%] px-4">
       <div class="flex justify-between w-full">
         <div>
           <span style="letter-spacing: 0.0015em; line-height: 20px;" class="monsetb text-[1rem] text-[#1A3184]">QUIERO CONSULTAR</span>
@@ -80,16 +80,19 @@
         <div class="mt-6 overflow-y-auto overflow-x-hidden h-[18rem] p-2">
 
           <div *ngFor="let cuent of cuentas" class="flex cursor-pointer mb-4 h-[4.438rem] justify-between flex-wrap content-center px-4 box">
-            <div class="w-[52%]">
-              <span class="text-[0.875rem]">{{cuent.title + ' - ' + cuent.moneda}}</span>
-            </div>
-            <div class="w-[42%]">
-              <div>
-                <span *ngIf="cuent.moneda === 'dolares'">$ {{cuent.saldo | number : '1.2-2'}}</span>
-                <span *ngIf="cuent.moneda === 'soles'">S/ {{cuent.saldo | number : '1.2-2'}}</span>
+
+            <div class="lg:flex lg:w-[94%]">
+              <div class="lg:w-[52%]">
+                <span class="text-[0.875rem]">{{cuent.title + ' - ' + cuent.moneda}}</span>
               </div>
-              <div>
-                <span style="letter-spacing: 0.005em; line-height: 15px;" class="text-[0.75rem]">Saldo disponible</span>
+              <div class="lg:w-[42%]">
+                <div>
+                  <span *ngIf="cuent.moneda === 'dolares'">$ {{cuent.saldo | number : '1.2-2'}}</span>
+                  <span *ngIf="cuent.moneda === 'soles'">S/ {{cuent.saldo | number : '1.2-2'}}</span>
+                </div>
+                <div>
+                  <span style="letter-spacing: 0.005em; line-height: 15px;" class="text-[0.75rem]">Saldo disponible</span>
+                </div>
               </div>
             </div>
             <div class="w-[6%]">
@@ -119,7 +122,7 @@
 
       </div>
     </div>
-    <div class="w-[35%] px-4">
+    <div class="lg:block hidden w-[35%] px-4">
       <span>demo</span>
     </div>
   </div>

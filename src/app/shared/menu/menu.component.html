@@ -11,7 +11,7 @@
     </div>
     <div>
       <mat-nav-list>
-        <button (click)="redirectGeneral(); closeSideNav.emit();" class="w-full focus:outline-none flex justify-content-center">
+        <button (click)="redirectGeneral(); closeSideNav.emit(); closeSideNav.emit();" class="w-full focus:outline-none flex justify-content-center">
           <a disabled class="monsetb text-xxs bg-white isInactive xl:text-sm w-full text-left mb-1 h-11 focus:outline-none" mat-list-item [routerLinkActive]="['is-active']" [routerLink]="'/home'">
             <mat-icon class="mr-5 lg:mr-2 xl:mr-4 2xl:mr-5">home</mat-icon>
             Inicio

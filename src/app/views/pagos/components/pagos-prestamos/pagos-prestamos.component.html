@@ -1,16 +1,16 @@
-<div>
+<div class="px-2">
   <div class="flex justify-center mb-2 text-[1.5rem] text-[#3D3C3C] monsetb">
     <h5>Pago de préstamo</h5>
   </div>
-  <div class="w-[44.938rem] border-t-2 border-[#00AF91]">
-    <div class="flex justify-center space-x-10 w-full mt-8">
-      <div>
-        <div>
-          <label class="text-[1rem] text-[#3D3C3C] monsetb">Préstamo</label>
-          <mat-form-field class="w-[21.125rem]" appearance="outline">
+  <div class="w-full flex justify-center border-t-2 border-[#00AF91] ">
+    <div class="w-full mt-8">
+      <div class="grid lg:grid-cols-2 grid-cols-1 gap-4 content-center w-full">
+        <div class="w-full">
+          <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monsetb">Préstamo</label>
+          <mat-form-field class="w-full " appearance="outline">
             <mat-label>Elige el préstamo a pagar</mat-label>
-            <mat-select [(ngModel)]="prestamosPagar" name="prestamosPagar">
-              <mat-option class="h-auto" *ngFor="let prest of prestamos" [value]="prest.value">
+            <mat-select>
+              <mat-option *ngFor="let prest of prestamos" [value]="prest.value">
                 <div class="my-3 -mt-2 text-[0.875rem]">
                   <div class="-mb-6">{{prest.title + ' - ' + prest.moneda}}</div>
                   <div class="-mb-6">{{prest.cuenta}}</div>
@@ -19,19 +19,11 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div *ngIf="cuentaCargo !== '' && prestamosPagar !== ''">
-          <div class="flex flex-wrap content-center px-4 w-[13.813rem] h-[3.188rem]" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);border-radius: 12px;">
-            <mat-radio-button checked [value]="pagomin">Pago minimo</mat-radio-button>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div>
-          <label class="text-[1rem] text-[#3D3C3C] monsetb">Cuenta de cargo</label>
-          <mat-form-field class="w-[21.125rem]" appearance="outline">
+        <div class="lg:w-full">
+          <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monsetb">Cuenta de cargo</label>
+          <mat-form-field class="w-full" appearance="outline">
             <mat-label>Elige tu cuenta de cargo</mat-label>
-            <mat-select [(ngModel)]="cuentaCargo" name="cuentaCargo">
+            <mat-select>
               <mat-option *ngFor="let cuent of cuenta" [value]="cuent.value">
                 <div class="flex justify-between my-3 -mt-2 text-[0.875rem]">
                   <div>
@@ -53,10 +45,84 @@
             </mat-select>
           </mat-form-field>
         </div>
+      </div>
+      <div class="grid lg:grid-cols-2 grid-cols-1 gap-4 content-center w-full">
+        <div class="lg:w-full ">
+          <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monsetb">Tipo de pago</label>
+          <!--<div class="lg:block hidden" *ngIf="cuentaCargo !== '' && prestamosPagar !== ''">-->
+          <div>
+            <div class="flex flex-wrap content-center px-4 w-full lg:w-[13.813rem] h-[3.188rem]" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);border-radius: 12px;">
+              <mat-radio-button checked [value]="pagomin">Pago minimo</mat-radio-button>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-[18.375rem]">
+          <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monsetb">Tipo de pago</label>
+          <div style="border-radius: 12px;" class="px-4 mt-2 h-[4rem] bg-[#E8F5FF] monsetb w-full lg:w-[14.813rem] flex flex-wrap content-center">
+            <span class="text-[1.5rem]">S/ 80.00</span>
+          </div>
+        </div>
+      </div>
+      <!--<div>
+        <div>
+          <label class="text-[1rem] text-[#3D3C3C] monsetb">Préstamo</label>
+          <mat-form-field class="w-[18.375rem] lg:w-[21.125rem]" appearance="outline">
+            <mat-label>Elige el préstamo a pagar</mat-label>
+            <mat-select class="text-[0.844rem]" [(ngModel)]="prestamosPagar" name="prestamosPagar">
+              <mat-option class="h-auto" *ngFor="let prest of prestamos" [value]="prest.value">
+                <div class="my-3 -mt-2 text-[0.875rem]">
+                  <div class="-mb-6">{{prest.title + ' - ' + prest.moneda}}</div>
+                  <div class="-mb-6">{{prest.cuenta}}</div>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="lg:block hidden" *ngIf="cuentaCargo !== '' && prestamosPagar !== ''">
+          <div class="flex flex-wrap content-center px-4 w-[13.813rem] h-[3.188rem]" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);border-radius: 12px;">
+            <mat-radio-button checked [value]="pagomin">Pago minimo</mat-radio-button>
+          </div>
+        </div>
+      </div>
 
-        <div *ngIf="cuentaCargo !== '' && prestamosPagar !== ''">
+      <div>
+        <div>
+          <label class="text-[1rem] text-[#3D3C3C] monsetb">Cuenta de cargo</label>
+          <mat-form-field class="w-[18.375rem] lg:w-[21.125rem]" appearance="outline">
+            <mat-label>Elige tu cuenta de cargo</mat-label>
+            <mat-select [(ngModel)]="cuentaCargo" name="cuentaCargo">
+              <mat-option *ngFor="let cuent of cuenta" [value]="cuent.title + cuent.monto">
+                <div class="flex justify-between my-3 -mt-2 text-[0.875rem]">
+                  <div>
+                    <div class="-mb-6">{{cuent.title + ' - ' + cuent.moneda}}</div>
+                    <div class="-mb-6">{{cuent.cuenta}}</div>
+                  </div>
+                  <div class="flex flex-wrap content-center">
+                    <div class="flex justify-between" *ngIf="cuent.moneda === 'dólares'">
+                      <div>$</div>
+                      <div>{{cuent.monto | number : '1.2-2'}}</div>
+                    </div>
+                    <div class="flex justify-between" *ngIf="cuent.moneda === 'soles'">
+                      <div>S/</div>
+                      <div>{{cuent.monto | number : '1.2-2'}}</div>
+                    </div>
+                  </div>
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="lg:block hidden" *ngIf="cuentaCargo !== '' && prestamosPagar !== ''">
           <div style="border-radius: 12px;" class="px-4 h-[4rem] bg-[#E8F5FF] monsetb w-[14.813rem] flex flex-wrap content-center">
             <span class="text-[1.5rem]">S/ 80.00</span>
+          </div>
+        </div>
+      </div>-->
+      <div>
+        <div class="lg:hidden" *ngIf="cuentaCargo !== '' && prestamosPagar !== ''">
+          <div class="flex flex-wrap content-center px-4 w-full lg:w-[13.813rem] h-[3.188rem]" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);border-radius: 12px;">
+            <mat-radio-button checked [value]="pagomin">Pago minimo</mat-radio-button>
           </div>
         </div>
       </div>
@@ -99,10 +165,9 @@
     </div>
   </div>
 
-  <div>
-
-    <div *ngIf="cuentaCargo === '' || prestamosPagar === ''" style="border-radius: 12px;" class="w-[45.125rem] h-[34.375rem] bg-[#F6F6F6] flex flex-wrap content-center px-20 text-center">
-      <span class="text-[1.5rem] text-[#7B7B7B] monsetb">Selecciona tu cuenta de origen y cuenta de cargo para visualizar el monto a pagar.</span>
+  <div class="py-4">
+    <div *ngIf="cuentaCargo === '' || prestamosPagar === ''" style="border-radius: 12px;" class="w-full lg:w-[45.125rem] h-[7.563rem] lg:h-[34.375rem] bg-[#F6F6F6] flex flex-wrap content-center px-10 lg:px-20 text-center">
+      <span class="lg:text-[1.5rem] text-[0.875rem] text-[#7B7B7B] lg:monsetb">Selecciona tu cuenta de origen y cuenta de cargo para visualizar el monto a pagar.</span>
     </div>
   </div>
 </div>
