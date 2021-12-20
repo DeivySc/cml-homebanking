@@ -1,0 +1,42 @@
+// th, td {
+//     font-weight: 500;
+//     color: #3D3C3C;
+//     font-family: Montserrat;
+// }
+
+th, td {
+    font-size: 10px;
+    font-weight: 700;
+    color: #3D3C3C;
+    font-family: Montserrat;
+    line-height: 12px;
+    padding: 0 0 20px;
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    text-align: right;
+}
+
+.radius-12 {
+    border-radius: 12px;
+}
+
+.btn-radius {
+    border-radius: 20px;
+}
+
+@media (min-width: 1024px) {
+    th, td {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19px;
+        color: #3D3C3C;
+        font-family: Montserrat;
+        padding: 0 0 20px;
+    }
+    
+}
