@@ -1,9 +1,11 @@
 <mat-drawer-container class="w-full h-full">
   <mat-drawer #drawer fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
               [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)" class="w-full lg:w-[13.813rem]" mode="side" opened>
-    <button mat-icon-button (click)="drawer.toggle()" class="lg:hidden focus:outline-none ml-2 mt-1">
-      <mat-icon>close</mat-icon>
-    </button>
+    <div class="lg:hidden">
+      <button mat-icon-button (click)="drawer.toggle()" class="focus:outline-none ml-2 mt-1">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
     <app-menu (closeSideNav)="closeSideNav()"></app-menu>
   </mat-drawer>
   <mat-drawer-content>

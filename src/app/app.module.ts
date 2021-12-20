@@ -19,7 +19,7 @@ import { PagosRoutingModule } from './views/pagos/pagos-routing.module';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -36,25 +36,26 @@ import {MatCardModule} from "@angular/material/card";
     PagosDashboardComponent,
     PagosPrestamosComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatMenuModule,
-    MatToolbarModule,
-    PagosRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    FormsModule,
-    MatRadioModule,
-    MatButtonModule,
-    MatSlideToggleModule,
-    MatCardModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatMenuModule,
+        MatToolbarModule,
+        PagosRoutingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        FormsModule,
+        MatRadioModule,
+        MatButtonModule,
+        MatSlideToggleModule,
+        MatCardModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
