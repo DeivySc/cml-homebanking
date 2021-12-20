@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcml_homebanking=self.webpackChunkcml_homebanking||[]).push([[788],{5788:(P,a,n)=>{n.r(a),n.d(a,{PagosModule:()=>g});var u=n(8583),s=n(3172),l=n(7716);let g=(()=>{class o{}return o.\u0275fac=function(M){return new(M||o)},o.\u0275mod=l.oAB({type:o}),o.\u0275inj=l.cJS({imports:[[u.ez,s.w]]}),o})()}}]);
