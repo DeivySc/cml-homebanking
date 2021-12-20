@@ -53,44 +53,44 @@
         <div *ngIf="selectOrigin.valid && selectDestiniti.valid" class="grid lg:grid-cols-2 grid-cols-1 gap-8 content-center w-full">
           <div class="lg:w-full ">
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Tipo de pago</label>
-              <div class="flex flex-wrap content-center px-4 w-full lg:w-[13.813rem] h-[3.188rem] mt-2.5" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);border-radius: 12px;">
+              <div class="flex flex-wrap content-center px-4 w-full lg:w-[13.813rem] h-[3.188rem] mt-2.5 bg-[#ECFEFB]" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);border-radius: 12px;">
                 <mat-radio-button checked [value]="pagomin">Pago mínimo</mat-radio-button>
               </div>
           </div>
           <div *ngIf="tokenNumber !== '1234'" class="w-full lg:w-[18.375rem]">
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Monto a pagar</label>
-            <div style="border-radius: 12px;" class="px-4 mt-2.5 h-[4rem] bg-[#E8F5FF] monsetb w-full lg:w-[14.813rem] flex flex-wrap content-center">
-              <span class="text-[1.5rem]">S/ 80.00</span>
+            <div style="border-radius: 12px;" class="px-4 mt-2.5 h-[4.5rem] bg-[#E8F5FF] monsetb w-full lg:w-[14.813rem] flex flex-wrap content-center">
+              <span class="text-[24px]">S/ 80.00</span>
             </div>
           </div>
         </div>
-        
-        
 
         <div class="pt-6 border-t-2 mt-6 border-[#D0D0D0]">
-          <div *ngIf="tokenNumber !== '1234'">
+          <div *ngIf="selectOrigin.valid && selectDestiniti.valid">
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información del pago</label>
-            <div style="border-radius: 12px;" class="flex px-4 mt-2.5 space-x-4 h-[4rem] bg-[#ECFEFB] monsetb w-[21.5rem] flex flex-wrap justify-between content-center">
+            <div style="border-radius: 12px;" class="flex px-4 mt-2.5 h-[4.5rem] bg-[#ECFEFB] monsetb w-[21.4rem] flex flex-wrap justify-between content-center">
+              <!-- space-x-4  -->
               <div class="text-[#3D3C3C]">
                 <p class="monset text-[0.75rem]">Tipo de cambio</p>
                 <p class="monsetb text-[1rem]">S/ 4.00</p>
               </div>
-              <div class="text-[#3D3C3C] pr-7">
+              <div class="text-[#3D3C3C] pr-10">
                 <p class="monset text-[0.75rem]">Monto al cambio</p>
                 <p class="monsetb text-[1rem]">$ 25.00</p>
               </div>
             </div>
           </div>
           <div  *ngIf="tokenNumber === '1234'" class="flex justify-between">
-            <div style="border-radius: 12px;" class="px-4 h-[4rem] bg-[#E8F5FF] monsetb w-[14.813rem] flex flex-wrap content-center">
+            <div style="border-radius: 12px;" class="px-4 h-[4.5rem] bg-[#E8F5FF] monsetb w-[14.813rem] flex flex-wrap content-center">
               <span class="text-[1.5rem]">S/ 80.00</span>
             </div>
-            <div style="border-radius: 12px;" class="flex px-4 space-x-4 h-[4rem] bg-[#E8F5FF] monsetb w-[21.125rem] flex flex-wrap content-center">
+            <div style="border-radius: 12px;" class="flex px-4 h-[4.5rem] bg-[#ECFEFB] monsetb w-[21.4rem] flex justify-between flex-wrap content-center">
+              <!-- space-x-4 -->
               <div class="text-[#3D3C3C]">
                 <p class="monset text-[0.75rem]">Fecha de vencimiento</p>
                 <p class="monsetb text-[1rem]">31/10/2021</p>
               </div>
-              <div class="text-[#3D3C3C]">
+              <div class="text-[#3D3C3C] pr-10">
                 <p class="monset text-[0.75rem]">Monto</p>
                 <p class="monsetb text-[1rem]">S/ 80.00</p>
               </div>
