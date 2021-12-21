@@ -19,6 +19,7 @@ th {
 
 td {
     text-align: right;
+    width: 150px;
 }
 
 .radius-12 {
@@ -37,6 +38,10 @@ td {
         color: #3D3C3C;
         font-family: Montserrat;
         padding: 0 0 20px;
+    }
+
+    td {
+        width: 250px;
     }
     
 }

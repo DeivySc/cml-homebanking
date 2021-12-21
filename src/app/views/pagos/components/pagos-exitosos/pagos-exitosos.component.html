@@ -38,11 +38,10 @@
         </table>
     </div>
     <div class="mx-3 lg:mx-2 py-5 border-b border-[#00AF91]">
-    <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información del pago</label>
-    <div class="flex items-center mt-2.5 space-x-2 lg:space-x-5">
-        <!-- <div> -->
+        <label class="lg:text-[1rem] text-[11px] text-[#3D3C3C] monsetb">Información del pago</label>
+        <div class="flex flex-col lg:flex-row items-center mt-2.5 lg:space-x-5">
             <div style="border-radius: 12px;"
-                class="flex px-4 h-[5rem] bg-[#ECFEFB] monsetb w-[21.4rem] flex flex-wrap justify-between content-center">
+                class="flex px-4 h-[5rem] bg-[#ECFEFB] monsetb w-full lg:w-[21.4rem] flex flex-wrap justify-between content-center">
                 <!-- space-x-4  -->
                 <div class="text-[#3D3C3C]">
                     <p class="monset text-[0.75rem]">Tipo de cambio</p>
@@ -53,17 +52,18 @@
                     <p class="monsetb text-[1rem]">$ 25.00</p>
                 </div>
             </div>
-        <!-- </div> -->
-        <div
-            class="w-11/12 lg:w-[400px] h-[5rem] rounded-[12px] bg-[#ECFEFB] text-[#1A3184] flex justify-center items-center py-2 space-x-2 lg:space-x-8">
-            <mat-icon class="ml-3 lg:ml-0 text-[#F34E4E]">warning</mat-icon>
-            <p class="text-xs monset lg:w-[280px] pr-3 lg:pr-0 text-[#F34E4E] leading-[14px]">Tu operación se realizó con éxito.
-                Sin embargo, no se pudo enviar la constancia debido a que no cuentas con un correo registrado. Ingresa a
-                la opción "Mi perfil" para registrar tu correo electrónico.
-            </p>
+            <div
+                class="lg:w-[400px] h-[5rem] rounded-[12px] bg-[#ECFEFB] text-[#1A3184] flex justify-center items-center mt-4 lg:mt-0 py-2 space-x-2 lg:space-x-8">
+                <mat-icon class="ml-3 lg:ml-0 text-[#F34E4E]">warning</mat-icon>
+                <p class="text-xs monset lg:w-[280px] pr-3 lg:pr-0 text-[#F34E4E] leading-[14px]">Tu operación se
+                    realizó con éxito.
+                    Sin embargo, no se pudo enviar la constancia debido a que no cuentas con un correo registrado.
+                    Ingresa a
+                    la opción "Mi perfil" para registrar tu correo electrónico.
+                </p>
+            </div>
         </div>
     </div>
-</div>
 
     <div
         class="w-11/12 lg:w-[400px] mx-auto h-[75px] rounded-[12px] bg-[#ECFEFB] text-[#1A3184] flex justify-center items-center my-5 space-x-2 lg:space-x-8">
@@ -82,10 +82,10 @@
         class="py-2 bg-[#E8F5FF] lg:bg-transparent lg:py-12 fixed lg:relative bottom-0 left-0 w-full flex justify-center items-center space-x-5">
         <!-- space-x-3  -->
         <button mat-button
-            class="bg-[#00AF91] text-[0.844rem] text-white monsetb button w-[140px] lg:w-[190px] h-[40px] lg:h-[60px] btn-radius">Nueva
+            class="bg-[#00AF91] text-[0.844rem] text-white monsetb button w-[43%] lg:w-[190px] h-[40px] lg:h-[60px] btn-radius">Nueva
             pago</button>
         <button mat-button
-            class="bg-[#00AF91] text-[0.844rem] text-white monsetb button w-[140px] lg:w-[190px] h-[40px] lg:h-[60px] btn-radius">Ir
+            class="bg-[#00AF91] text-[0.844rem] text-white monsetb button w-[43%] lg:w-[190px] h-[40px] lg:h-[60px] btn-radius">Ir
             al
             inicio</button>
     </div>
