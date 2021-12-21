@@ -80,7 +80,6 @@
         <div class="mt-6 overflow-y-auto overflow-x-hidden h-[18rem] p-2">
 
           <div *ngFor="let cuent of cuentas" class="flex cursor-pointer mb-4 h-[4.438rem] justify-between flex-wrap content-center px-4 box">
-
             <div class="lg:flex lg:w-[94%]">
               <div class="lg:w-[52%]">
                 <span class="text-[0.875rem]">{{cuent.title + ' - ' + cuent.moneda}}</span>
@@ -115,8 +114,31 @@
         </div>
 
         <div class="mt-6 h-[22rem]">
-          <div class="flex h-[12.125rem] justify-between flex-wrap content-center box">
-
+          <div class="flex h-[12.125rem] px-8 justify-between flex-wrap content-center box">
+            <div class="flex justify-between w-full">
+              <div class="flex justify-between space-x-8">
+                <div><span class="text-[#3D3C3C] text-[0.75rem]" style="align-items: center; letter-spacing: 0.0025em;">Consumo prendamás  clásico</span></div>
+                <div><button class="bg-[#00AF91] btn-prestamo text-white w-[10.375rem]" mat-button>Pagar cuota</button></div>
+              </div>
+              <div><mat-icon>arrow_forward_ios</mat-icon></div>
+            </div>
+            <div class="w-full mt-8 flex justify-between text-[#3D3C3C] text-[0.75rem]">
+              <div class="text-center">
+                <div><span>Pago mínimo</span></div>
+                <div class="mt-6"><span class="text-[1rem] monsetb">S/ 342.20</span></div>
+              </div>
+              <div class="text-center">
+                <div class="text-left"><span>Fecha de pago</span></div>
+                <div class="mt-6 flex flex-wrap content-center space-x-2">
+                  <span class="text-[1rem] monsetb">06/07/2021</span>
+                  <mat-icon class="text-[#F9B208]">info</mat-icon>
+                </div>
+              </div>
+              <div class="text-center">
+                <div><span>Saldo de capital</span></div>
+                <div class="mt-6"><span class="text-[1rem] monsetb">S/ 11,728.85</span></div>
+              </div>
+            </div>
           </div>
         </div>
 
