@@ -1,14 +1,10 @@
 <div class="lg:py-4">
-  <!-- px-2  -->
-  <!-- <div class="flex justify-center mb-2 text-[1.5rem] text-[#3D3C3C] monsetb"> -->
   <h5 class="text-base lg:text-[24px] lg:text-center mb-2 text-[#1A3184] lg:text-[#3D3C3C] monsetb mx-3 lg:mx-2">Pago de
     préstamo</h5>
-  <!-- </div> -->
   <form [formGroup]="pagosPrestamos">
     <div class="w-[95%] lg:w-11/12 flex justify-center border-t-2 border-[#00AF91] mx-3 lg:mx-auto">
       <div class="w-full mt-4 lg:mt-8">
         <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-8 content-center">
-          <!-- mx-3 lg:mx-2 -->
           <div class="lg:w-full">
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Préstamo</label>
             <mat-form-field class="w-full mt-1.5" floatLabel="never" appearance="outline">
@@ -69,7 +65,6 @@
             </div>
           </div>
           <div *ngIf="prestamosPagar === 1 || prestamosPagar == 2" class="lg:w-[18.375rem]">
-            <!-- tokenNumber !== '1234' &&  -->
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Monto a pagar</label>
             <div style="border-radius: 12px;"
               class="px-4 mt-2.5 h-[4.5rem] bg-[#E8F5FF] monsetb w-full lg:w-[14.813rem] flex flex-wrap content-center">
@@ -77,12 +72,10 @@
             </div>
           </div>
         </div>
-        <!-- <p>{{prestamosPagar}}</p> -->
         <div class="lg:pt-6 mt-6 lg:border-t-2 border-[#D0D0D0] flex flex-col-reverse lg:flex-row content-center lg:space-x-5" *ngIf="prestamosPagar !== cuentaCargo && selectDestiny.valid || prestamosPagar === 3 && selectDestiny.valid || prestamosPagar === 4 && selectDestiny.valid">
           <!-- *ngIf="prestamosPagar !== cuentaCargo && selectDestiny.valid" [ngClass]="{'border-t-2' : prestamosPagar !== cuentaCargo || prestamosPagar === 3 }"-->
           <div class="flex flex-col-reverse lg:flex-col lg:space-y-4">
             <div *ngIf="prestamosPagar !== cuentaCargo && selectDestiny.valid" class="mt-4 lg:mt-0">
-              <!-- && tokenNumber !== '1234' *ngIf="prestamosPagar !== cuentaCargo && tokenNumber === '1235'"-->
               <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información del pago</label>
               <div style="border-radius: 12px;" [ngClass]="{'lg:w-[19rem]' : (prestamosPagar !== 3 || prestamosPagar !== 4), 'lg:w-[17rem]' : (prestamosPagar === 3 || prestamosPagar === 4) }"
                 class="flex px-4 mt-2.5 h-[4.5rem] w-full bg-[#ECFEFB] monsetb flex flex-wrap justify-between content-center">
@@ -106,7 +99,6 @@
             </div>
           </div>
           <div *ngIf="prestamosPagar === 3 && selectDestiny.valid || prestamosPagar === 4 && selectDestiny.valid">
-            <!-- *ngIf="tokenNumber === '1234'" -->
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información de vencimiento
               de deuda</label>
             <div style="border-radius: 12px;"
@@ -125,35 +117,6 @@
               </div>
             </div>
           </div>
-          <!-- <div  class="flex justify-between"> -->
-            <!-- <div>
-              <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Monto a pagar</label>
-              <div style="border-radius: 12px;"
-                class="px-4 mt-2.5 h-[4.5rem] bg-[#E8F5FF] monsetb w-[14.813rem] flex flex-wrap content-center">
-                <span class="text-[1.5rem]">S/ 100.00</span>
-              </div>
-            </div> -->
-            <!-- <div>
-              <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información de vencimiento
-                de deuda</label>
-              <div style="border-radius: 12px;"
-                class="flex px-4 mt-2.5 h-[4.5rem] bg-[#ECFEFB] monsetb lg:w-[23rem] flex justify-between flex-wrap content-center">
-                <div class="text-[#3D3C3C]">
-                  <p class="monset text-[0.75rem]">Nro. de Cuota</p>
-                  <p class="monsetb text-[1rem]">12</p>
-                </div>
-                <div class="text-[#3D3C3C]">
-                  <p class="monset text-[0.75rem]">Fecha de vencimiento</p>
-                  <p class="monsetb text-[1rem]">31/10/2021</p>
-                </div>
-                <div class="text-[#3D3C3C] ">
-                  <p class="monset text-[0.75rem]">Monto</p>
-                  <p class="monsetb text-[1rem]">S/ 80.00</p>
-                </div>
-              </div>
-            </div> -->
-
-          <!-- </div> -->
         </div>
         <div *ngIf="selectDestiny.valid && selectOrigin.valid"
           class="flex justify-center lg:border-t-2 mt-6 border-[#D0D0D0] text-center monset lg:py-6">
@@ -186,10 +149,8 @@
       class="w-11/12 lg:w-[41.125rem] mx-auto h-[7.563rem] lg:h-[34.375rem] bg-[#F6F6F6] flex flex-wrap content-center px-10 lg:px-20 text-center">
       <span class="lg:text-[1.5rem] text-[0.875rem] text-[#7B7B7B] lg:monsetb">Selecciona tu cuenta de origen y cuenta
         de cargo para visualizar el monto a pagar.</span>
-        <!-- 45.125rem -->
     </div>
   </div>
-  <!-- pb-14  -->
   <div class="flex justify-center w-full fixed bottom-0 left-0 lg:relative py-2 lg:py-0 bg-[#E8F5FF] lg:bg-transparent">
     <button [disabled]="pagosPrestamos.invalid || tokenNumber !== '1234'" routerLink="/pago-exitoso"
       style="letter-spacing: 0.055em;" mat-button
