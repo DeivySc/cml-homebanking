@@ -1,21 +1,23 @@
-<div class="py-4">
+<div class="lg:py-4">
   <!-- px-2  -->
   <!-- <div class="flex justify-center mb-2 text-[1.5rem] text-[#3D3C3C] monsetb"> -->
-    <h5 class="text-base lg:text-[24px] lg:text-center mb-2 text-[#1A3184] lg:text-[#3D3C3C] monsetb mx-3 lg:mx-2">Pago de préstamo</h5>
+  <h5 class="text-base lg:text-[24px] lg:text-center mb-2 text-[#1A3184] lg:text-[#3D3C3C] monsetb mx-3 lg:mx-2">Pago de
+    préstamo</h5>
   <!-- </div> -->
   <form [formGroup]="pagosPrestamos">
-    <div class="w-11/12 flex justify-center border-t-2 border-[#00AF91] mx-3">
+    <div class="w-[95%] lg:w-11/12 flex justify-center border-t-2 border-[#00AF91] mx-3 lg:mx-auto">
       <div class="w-full mt-4 lg:mt-8">
         <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-8 content-center">
           <!-- mx-3 lg:mx-2 -->
           <div class="lg:w-full">
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Préstamo</label>
             <mat-form-field class="w-full mt-1.5" floatLabel="never" appearance="outline">
-              <!-- <mat-label>Elige el préstamo a pagar</mat-label> -->
-              <mat-select formControlName="selectOrigin" [(ngModel)]="prestamosPagar" name="prestamosPagar" placeholder="Elige el préstamo a pagar">
+              <mat-label>Elige el préstamo a pagar</mat-label>
+              <mat-select formControlName="selectOrigin" [(ngModel)]="prestamosPagar" name="prestamosPagar">
+                <!-- placeholder="Elige el préstamo a pagar" -->
                 <mat-option *ngFor="let prest of prestamos" [value]="prest.value">
                   <div class="my-3 -mt-2 text-[0.875rem]">
-                    <div class="-mb-6">{{prest.title + ' - ' + prest.moneda}}</div>
+                    <div class="-mb-6">{{prest.title + ' - ' + prest.moneda + ' '}}</div>
                     <div class="-mb-6">{{prest.cuenta}}</div>
                   </div>
                 </mat-option>
@@ -26,12 +28,13 @@
           <div class="lg:w-full">
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Cuenta de cargo</label>
             <mat-form-field class="w-full mt-1.5" appearance="outline" floatLabel="never">
-              <!-- <mat-label>Elige tu cuenta de cargo</mat-label> -->
-              <mat-select formControlName="selectDestiniti" [(ngModel)]="cuentaCargo" name="cuentaCargo" placeholder="Elige tu cuenta de cargo">
-                <mat-option *ngFor="let cuent of cuenta" [value]="cuent.monto">
+              <mat-label>Elige tu cuenta de cargo</mat-label>
+              <mat-select formControlName="selectDestiny" [(ngModel)]="cuentaCargo" name="cuentaCargo">
+                <!-- placeholder="Elige tu cuenta de cargo" -->
+                <mat-option *ngFor="let cuent of cuenta" [value]="cuent.value">
                   <div class="flex justify-between my-3 -mt-2 text-[0.875rem]">
                     <div>
-                      <div class="-mb-6">{{cuent.title + ' - ' + cuent.moneda}}</div>
+                      <div class="-mb-6">{{cuent.title + ' - ' + cuent.moneda + ' '}}</div>
                       <div class="-mb-6">{{cuent.cuenta}}</div>
                     </div>
                     <div class="flex flex-wrap content-center">
@@ -47,75 +50,127 @@
                   </div>
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="selectDestiniti.invalid">{{getErrorMessageSelectDestiniti()}}</mat-error>
+              <mat-error *ngIf="selectDestiny.invalid">{{getErrorMessageSelectDestiny()}}</mat-error>
             </mat-form-field>
           </div>
         </div>
 
-        <div *ngIf="selectOrigin.valid && selectDestiniti.valid" class="grid lg:grid-cols-2 grid-cols-1 gap-3 lg:gap-8 content-center lg:w-full">
+        <div *ngIf="selectOrigin.valid && selectDestiny.valid"
+          class="grid lg:grid-cols-2 grid-cols-1 gap-3 lg:gap-8 content-center lg:w-full">
           <div class="lg:w-full ">
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Tipo de pago</label>
-              <div class="flex flex-wrap content-center px-4 lg:w-[13.813rem] h-[3.188rem] mt-2.5 bg-[#ECFEFB]" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);border-radius: 12px;">
-                <!-- w-full -->
-                <mat-radio-button checked [value]="pagomin">Pago mínimo</mat-radio-button>
-              </div>
+            <div class="flex flex-wrap content-center px-4 lg:w-[13.813rem] h-[3.188rem] mt-2.5 bg-[#ECFEFB]"
+              style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);border-radius: 12px;">
+              <mat-radio-button checked [value]="pagomin">
+                <span *ngIf="prestamosPagar == 1 || prestamosPagar == 2 && selectDestiny.valid">Pago mínimo</span>
+                <span *ngIf="prestamosPagar === 3 && selectDestiny.valid">Deuda vencida</span>
+                <span *ngIf="prestamosPagar === 4 && selectDestiny.valid">Cuota</span>
+              </mat-radio-button>
+            </div>
           </div>
-          <div *ngIf="tokenNumber !== '1234'" class="lg:w-[18.375rem]">
-            <!-- w-full  -->
+          <div *ngIf="prestamosPagar === 1 || prestamosPagar == 2" class="lg:w-[18.375rem]">
+            <!-- tokenNumber !== '1234' &&  -->
             <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Monto a pagar</label>
-            <div style="border-radius: 12px;" class="px-4 mt-2.5 h-[4.5rem] bg-[#E8F5FF] monsetb w-full lg:w-[14.813rem] flex flex-wrap content-center">
+            <div style="border-radius: 12px;"
+              class="px-4 mt-2.5 h-[4.5rem] bg-[#E8F5FF] monsetb w-full lg:w-[14.813rem] flex flex-wrap content-center">
               <span class="text-[24px]">S/ 80.00</span>
             </div>
           </div>
         </div>
-
-        <div class="pt-6 border-t-2 mt-6 border-[#D0D0D0]">
-          <div *ngIf="selectOrigin.valid && selectDestiniti.valid && tokenNumber !== '1234'">
-            <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información del pago</label>
-            <div style="border-radius: 12px;" class="flex px-4 mt-2.5 h-[4.5rem] bg-[#ECFEFB] monsetb lg:w-[21.4rem] flex flex-wrap justify-between content-center">
-              <!-- space-x-4  -->
-              <div class="text-[#3D3C3C]">
-                <p class="monset text-[0.75rem]">Tipo de cambio</p>
-                <p class="monsetb text-[1rem]">S/ 4.00</p>
+        <!-- <p>{{prestamosPagar}}</p> -->
+        <div class="lg:pt-6 mt-6 lg:border-t-2 border-[#D0D0D0] flex flex-col-reverse lg:flex-row content-center lg:space-x-5" *ngIf="prestamosPagar !== cuentaCargo && selectDestiny.valid || prestamosPagar === 3 && selectDestiny.valid || prestamosPagar === 4 && selectDestiny.valid">
+          <!-- *ngIf="prestamosPagar !== cuentaCargo && selectDestiny.valid" [ngClass]="{'border-t-2' : prestamosPagar !== cuentaCargo || prestamosPagar === 3 }"-->
+          <div class="flex flex-col-reverse lg:flex-col lg:space-y-4">
+            <div *ngIf="prestamosPagar !== cuentaCargo && selectDestiny.valid" class="mt-4 lg:mt-0">
+              <!-- && tokenNumber !== '1234' *ngIf="prestamosPagar !== cuentaCargo && tokenNumber === '1235'"-->
+              <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información del pago</label>
+              <div style="border-radius: 12px;" [ngClass]="{'lg:w-[19rem]' : (prestamosPagar !== 3 || prestamosPagar !== 4), 'lg:w-[17rem]' : (prestamosPagar === 3 || prestamosPagar === 4) }"
+                class="flex px-4 mt-2.5 h-[4.5rem] w-full bg-[#ECFEFB] monsetb flex flex-wrap justify-between content-center">
+                <div class="text-[#3D3C3C]">
+                  <p class="monset text-[0.75rem]">Tipo de cambio</p>
+                  <p class="monsetb text-[1rem]">S/ 4.00</p>
+                </div>
+                <div class="text-[#3D3C3C] pr-10">
+                  <p class="monset text-[0.75rem]">Monto al cambio</p>
+                  <p class="monsetb text-[1rem]">$ 25.00</p>
+                </div>
               </div>
-              <div class="text-[#3D3C3C] pr-10">
-                <p class="monset text-[0.75rem]">Monto al cambio</p>
-                <p class="monsetb text-[1rem]">$ 25.00</p>
+            </div>
+            <div *ngIf="prestamosPagar === 3 && selectDestiny.valid || prestamosPagar === 4 && selectDestiny.valid" class="mt-4 lg:mt-0">
+              <!-- *ngIf="tokenNumber === '1234'" -->
+              <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Monto a pagar</label>
+              <div style="border-radius: 12px;" [ngClass]="{'lg:w-[17rem]' : (prestamosPagar === 3 || prestamosPagar === 4), 'lg:w-[19rem]' : (prestamosPagar !== 3 || prestamosPagar !== 4)}"
+                class="px-4 mt-2.5 h-[4.5rem] w-full bg-[#E8F5FF] monsetb flex flex-wrap content-center">
+                <span class="text-[1.5rem]">S/ 100.00</span>
               </div>
             </div>
           </div>
-          <div  *ngIf="tokenNumber === '1234'" class="flex justify-between">
-            <div style="border-radius: 12px;" class="px-4 h-[4.5rem] bg-[#E8F5FF] monsetb w-[14.813rem] flex flex-wrap content-center">
-              <span class="text-[1.5rem]">S/ 80.00</span>
-            </div>
-            <div style="border-radius: 12px;" class="flex px-4 h-[4.5rem] bg-[#ECFEFB] monsetb lg:w-[21.4rem] flex justify-between flex-wrap content-center">
-              <!-- space-x-4 -->
+          <div *ngIf="prestamosPagar === 3 && selectDestiny.valid || prestamosPagar === 4 && selectDestiny.valid">
+            <!-- *ngIf="tokenNumber === '1234'" -->
+            <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información de vencimiento
+              de deuda</label>
+            <div style="border-radius: 12px;"
+              class="flex px-2 lg:px-4 mt-2.5 h-[4.5rem] bg-[#ECFEFB] monsetb lg:w-[22rem] flex justify-between flex-wrap content-center">
+              <div class="text-[#3D3C3C]">
+                <p class="monset text-[0.75rem]">Nro. de Cuota</p>
+                <p class="monsetb text-[1rem]">12</p>
+              </div>
               <div class="text-[#3D3C3C]">
                 <p class="monset text-[0.75rem]">Fecha de vencimiento</p>
                 <p class="monsetb text-[1rem]">31/10/2021</p>
               </div>
-              <div class="text-[#3D3C3C] pr-10">
+              <div class="text-[#3D3C3C] ">
                 <p class="monset text-[0.75rem]">Monto</p>
                 <p class="monsetb text-[1rem]">S/ 80.00</p>
               </div>
             </div>
           </div>
-        </div>
+          <!-- <div  class="flex justify-between"> -->
+            <!-- <div>
+              <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Monto a pagar</label>
+              <div style="border-radius: 12px;"
+                class="px-4 mt-2.5 h-[4.5rem] bg-[#E8F5FF] monsetb w-[14.813rem] flex flex-wrap content-center">
+                <span class="text-[1.5rem]">S/ 100.00</span>
+              </div>
+            </div> -->
+            <!-- <div>
+              <label class="lg:text-[1rem] text-[0.688rem] text-[#3D3C3C] monset font-bold">Información de vencimiento
+                de deuda</label>
+              <div style="border-radius: 12px;"
+                class="flex px-4 mt-2.5 h-[4.5rem] bg-[#ECFEFB] monsetb lg:w-[23rem] flex justify-between flex-wrap content-center">
+                <div class="text-[#3D3C3C]">
+                  <p class="monset text-[0.75rem]">Nro. de Cuota</p>
+                  <p class="monsetb text-[1rem]">12</p>
+                </div>
+                <div class="text-[#3D3C3C]">
+                  <p class="monset text-[0.75rem]">Fecha de vencimiento</p>
+                  <p class="monsetb text-[1rem]">31/10/2021</p>
+                </div>
+                <div class="text-[#3D3C3C] ">
+                  <p class="monset text-[0.75rem]">Monto</p>
+                  <p class="monsetb text-[1rem]">S/ 80.00</p>
+                </div>
+              </div>
+            </div> -->
 
-        <div *ngIf="selectDestiniti.valid && selectOrigin.valid" class="flex justify-center border-t-2 mt-6 border-[#D0D0D0] text-center monset py-6">
-          <div class="w-full pb-7 lg:pb-0">
-            <p style="letter-spacing: 0.007em;line-height: 23px;" class="text-[11px] lg:text-[1rem]">Para confirmar la operación, ingresa el Token Digital</p>
-            <div class="mt-12">
-              <mat-form-field class="w-[18.75rem]" appearance="outline">
+          <!-- </div> -->
+        </div>
+        <div *ngIf="selectDestiny.valid && selectOrigin.valid"
+          class="flex justify-center lg:border-t-2 mt-6 border-[#D0D0D0] text-center monset lg:py-6">
+          <div class="w-full pb-16 lg:pb-0">
+            <p style="letter-spacing: 0.007em;line-height: 23px;" class="text-[11px] lg:text-[1rem] mb-5 lg:mb-8 font-bold lg:font-normal">Para confirmar la
+              operación, ingresa el Token Digital</p>
+              <mat-form-field class="w-full lg:w-[18.75rem]" appearance="outline">
                 <mat-label>Ingresa el Token Digital</mat-label>
-                <input formControlName="token" type="password" class="token h-[2.176rem]" matInput maxlength="4" minlength="4" placeholder="°°°°" [(ngModel)]="tokenNumber" autocomplete="disabled">
+                <input formControlName="token" type="password" class="token h-[2.176rem]" matInput maxlength="4"
+                  minlength="4" placeholder="°°°°" [(ngModel)]="tokenNumber" autocomplete="disabled">
                 <mat-icon *ngIf="tokenNumber === '1234'" class="text-[#00AF91]" matSuffix>check_circle</mat-icon>
                 <mat-error *ngIf="token.invalid">{{getErrorMessageToken()}}</mat-error>
                 <!--<mat-error *ngIf="token.hasError('validartoken')">Ingresa el Token Digital correcto</mat-error>-->
               </mat-form-field>
-            </div>
-            <div class="mt-4" style="text-align: center">
-              <div (click)="imprimit()" class="w-[2.625rem] cursor-pointer h-[2.438rem] mx-auto bg-[#E8F5FF]" style="border-radius: 12px">
+            <div class="mt-2 lg:mt-4" style="text-align: center">
+              <div (click)="imprimit()" class="w-[2.625rem] cursor-pointer h-[2.438rem] mx-auto bg-[#E8F5FF]"
+                style="border-radius: 12px">
                 <mat-icon class="text-[1.25rem] my-2 text-[#7B7B7B]">stars</mat-icon>
               </div>
               <p class="monsetb text-[0.688rem] lg:text-base text-[#8F8F8F]">Agregar a operaciones frecuentes</p>
@@ -126,12 +181,19 @@
     </div>
   </form>
 
-  <div *ngIf="selectDestiniti.invalid || selectOrigin.invalid" class="pb-14 lg:py-4">
-    <div style="border-radius: 12px;" class="w-11/12 lg:w-[45.125rem] mx-auto h-[7.563rem] lg:h-[34.375rem] bg-[#F6F6F6] flex flex-wrap content-center px-10 lg:px-20 text-center">
-      <span class="lg:text-[1.5rem] text-[0.875rem] text-[#7B7B7B] lg:monsetb">Selecciona tu cuenta de origen y cuenta de cargo para visualizar el monto a pagar.</span>
+  <div *ngIf="selectDestiny.invalid || selectOrigin.invalid" class="lg:py-4">
+    <div style="border-radius: 12px;"
+      class="w-11/12 lg:w-[41.125rem] mx-auto h-[7.563rem] lg:h-[34.375rem] bg-[#F6F6F6] flex flex-wrap content-center px-10 lg:px-20 text-center">
+      <span class="lg:text-[1.5rem] text-[0.875rem] text-[#7B7B7B] lg:monsetb">Selecciona tu cuenta de origen y cuenta
+        de cargo para visualizar el monto a pagar.</span>
+        <!-- 45.125rem -->
     </div>
   </div>
+  <!-- pb-14  -->
   <div class="flex justify-center w-full fixed bottom-0 left-0 lg:relative py-2 lg:py-0 bg-[#E8F5FF] lg:bg-transparent">
-    <button [disabled]="pagosPrestamos.invalid || tokenNumber !== '1234'" routerLink="/pago-exitoso" style="letter-spacing: 0.055em;" mat-button class="bg-[#00AF91] text-[0.844rem] text-white monsetb button w-11/12 lg:w-[21.125rem] h-[40px] lg:h-[3.75rem]">Confirmar pago</button>
+    <button [disabled]="pagosPrestamos.invalid || tokenNumber !== '1234'" routerLink="/pago-exitoso"
+      style="letter-spacing: 0.055em;" mat-button
+      class="bg-[#00AF91] text-[0.844rem] text-white monsetb button w-11/12 lg:w-[46.4%] h-[40px] lg:h-[3.75rem]">Confirmar
+      pago</button>
   </div>
 </div>

@@ -10,29 +10,36 @@ import {PagosPrestamosValidators} from "../../../../shared/clases/pagos.prestamo
 export class PagosPrestamosComponent implements OnInit {
 
   pagosPrestamos!: FormGroup;
-
-  prestamosPagar = '';
-  cuentaCargo = '';
+  prestamosPagar: any = '';
+  cuentaCargo: any = '';
 
   prestamos = [
-    {value: 1, title: 'Prendamás Clásico', moneda: 'dólares', cuenta: 102013201002201399},
-    {value: 2, title: 'Prendamás Clásico', moneda: 'soles', cuenta: 1020132010022013582},
-    {value: 3, title: 'Prendamás Clásico', moneda: 'dólares', cuenta: 102013201002201466},
+    {value: 1, title: 'Prendamás Clásico', moneda: 'Dólares', cuenta: 102013201002201399},
+    {value: 2, title: 'Prendamás Clásico', moneda: 'Soles', cuenta: 1020132010022013582},
+    {value: 3, title: 'Mes Caja Pyme', moneda: 'Soles', cuenta: 102013201002201399},
+    {value: 4, title: 'Mes Caja Pyme', moneda: 'Dólares', cuenta: 102013201002201399},
+    {value: 3, title: 'Crédito planilla cash', moneda: 'Soles', cuenta: 102013201002201399},
+    {value: 4, title: 'Crédito de consumo personal', moneda: 'Dólares', cuenta: 1020132010022013582},
+    {value: 3, title: 'Préstamo hipotecario', moneda: 'Soles', cuenta: 102013201002201399},
+    {value: 4, title: 'Préstamo hipotecario', moneda: 'Dólares', cuenta: 102013201002201399}
   ];
 
   cuenta = [
-    {value: 1, title: 'Cuenta Ahorros', moneda: 'dólares', monto: 150.25, cuenta: 102013201002201399},
-    {value: 2, title: 'Cuenta Ahorros', moneda: 'soles', monto: 60, cuenta: 1020132010022013582},
-    {value: 3, title: 'Cuenta Ahorros', moneda: 'dólares', monto: 100, cuenta: 102013201002201466},
-    {value: 4, title: 'Cuenta Ahorros', moneda: 'soles', monto: 0, cuenta: 102013201002201422},
+    {value: 1, title: 'Cuenta Ahorros', moneda: 'Dólares', monto: 150.25, cuenta: 102013201002201399},
+    {value: 2, title: 'Cuenta Ahorros', moneda: 'Soles', monto: 60, cuenta: 1020132010022013582},
+    {value: 3, title: 'Cuenta Ahorros', moneda: 'Soles', monto: 523.21, cuenta: 10201232100169937},
+    {value: 4, title: 'Cuenta Ahorros', moneda: 'Dólares', monto: 500.00, cuenta: 102013201002201422},
   ];
 
   preload = false;
   pagomin = '1';
-  tokenNumber = ''
+  tokenNumber = '';
+  cuota = '2';
+  importe = '3';
+
 
   selectOrigin = new FormControl('', [Validators.required]);
-  selectDestiniti = new FormControl('', [Validators.required, PagosPrestamosValidators.selectCargo]);
+  selectDestiny = new FormControl('', [Validators.required, PagosPrestamosValidators.selectCargo]);
   token = new FormControl('', [Validators.required, PagosPrestamosValidators.validartoken, Validators.minLength(4)]);
 
   constructor(private _formBuilder: FormBuilder) { }
@@ -46,11 +53,11 @@ export class PagosPrestamosComponent implements OnInit {
     return null;
   }
 
-  getErrorMessageSelectDestiniti(){
-    if (this.selectDestiniti.hasError('required')){
+  getErrorMessageSelectDestiny(){
+    if (this.selectDestiny.hasError('required')){
       return 'El cargo es requerido.';
     }else {
-      if (this.selectDestiniti.hasError('selectCargo')){
+      if (this.selectDestiny.hasError('selectCargo')){
         return 'La cuenta de cargo seleccionada no tiene saldo suficiente para realizar el pago del préstamo';
       }
     }
@@ -76,7 +83,7 @@ export class PagosPrestamosComponent implements OnInit {
   ngOnInit() {
     this.pagosPrestamos = this._formBuilder.group({
       selectOrigin: this.selectOrigin,
-      selectDestiniti: this.selectDestiniti,
+      selectDestiny: this.selectDestiny,
       token: this.token,
     })
   }
